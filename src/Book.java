@@ -1,28 +1,35 @@
 public class Book {
-    String name;
-    String authorName;
-    int year;
+    private String name;
+    private Author author;
+    private int year;
 
-    public Book(String newName, String newAuthorName, int newYear){
-        name = newName;
-        authorName = newAuthorName;
-        year = newYear;
+    public Book(String name, Author author, int year){
+        this.name = name;
+        this.author = author;
+        this.year = year;
     }
 
     public String getName(){
         return name;
     }
 
-    public String getAuthorName(){
-        return authorName;
+    public Author getAuthorName(){
+        return author;
     }
 
     public int getYear(){
         return year;
     }
 
-    public void setYear(int newYear){
-        year = newYear;
+    public void setYear(int year){
+        this.year = year;
     }
 
+    @Override
+    public String toString() {
+        String bookName = "Book name: " + name + ",";
+        String authorName = " Author: " + author.getFirstName() + " " + author.getLastName() + ",";
+        String datePublished = " Published: " + year;
+        return bookName + authorName + datePublished;
+    }
 }
